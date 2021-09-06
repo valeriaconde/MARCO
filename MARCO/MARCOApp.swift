@@ -1,9 +1,6 @@
 //
 //  MARCOApp.swift
 //  MARCO
-//
-//  Created by Valeria Conde on 9/3/21.
-//
 
 import SwiftUI
 
