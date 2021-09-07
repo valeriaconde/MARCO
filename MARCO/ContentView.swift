@@ -18,6 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         List {
+            //ContentView
             ForEach(items) { item in
                 Text("Item at \(item.timestamp!, formatter: itemFormatter)")
             }
