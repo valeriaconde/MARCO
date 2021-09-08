@@ -14,6 +14,7 @@
 		8B00017D26E28DF0004D175E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017C26E28DF0004D175E /* Persistence.swift */; };
 		8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017E26E28DF0004D175E /* MARCO.xcdatamodeld */; };
 		8BDB5A6C26E84EDE0008AE6B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */; };
+		C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3959EB826E87C9D008378B2 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8B00017F26E28DF0004D175E /* MARCO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MARCO.xcdatamodel; sourceTree = "<group>"; };
 		8B00018126E28DF0004D175E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C3959EB826E87C9D008378B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				8B00017326E28DEE004D175E /* MARCOApp.swift */,
 				8B00017526E28DEE004D175E /* ContentView.swift */,
+				C3959EB826E87C9D008378B2 /* HomeView.swift */,
 				8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */,
 				8B00017726E28DF0004D175E /* Assets.xcassets */,
 				8B00017C26E28DF0004D175E /* Persistence.swift */,
@@ -150,6 +153,7 @@
 				8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */,
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
+				C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */,
 				8BDB5A6C26E84EDE0008AE6B /* LoginView.swift in Sources */,
 				8B00017426E28DEE004D175E /* MARCOApp.swift in Sources */,
 			);
