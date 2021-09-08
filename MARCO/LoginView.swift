@@ -20,7 +20,7 @@
                  .ignoresSafeArea()
 
              VStack{
-                 Image("logomarco")
+                 Image("Marco_whiteLogo")
                      .resizable()
                      .aspectRatio(contentMode: .fit)
                      .frame(width: 280, height: 280, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -60,12 +60,36 @@
                      VStack(spacing:0){
                  Text("¿No tienes cuenta?")
                      .foregroundColor(.white)
-                 Text("Registrate Aqui")
-                     .foregroundColor(.blue)
-                     }
+                Button(action:{
+                    print("Hello World")
+                        })
+                        {
+                            Text("Registrate")
+                                .frame(width: 200 , height: 27, alignment: .center)
 
-                 Text("Continuar como invitado")
-                     .foregroundColor(.white)
+                        }
+                            .foregroundColor(.blue)
+                            .background(Color("Nada"))
+                           
+
+                     }
+                
+                    
+
+                    Button(action:{
+                        print("Hello World")
+                                })
+                                {
+                                    Text("Continuar como invitado")
+                            .frame(width: 200 , height: 17, alignment: .center)
+
+                                }
+                        .foregroundColor(.blue)
+                        .background(Color("Nada"))
+                                   
+
+                             
+                    }
 
                  }
              }
@@ -77,4 +101,4 @@
          LoginView()
      }
  }
- }
+
