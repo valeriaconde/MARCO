@@ -13,6 +13,7 @@
 		8B00017B26E28DF0004D175E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B00017A26E28DF0004D175E /* Preview Assets.xcassets */; };
 		8B00017D26E28DF0004D175E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017C26E28DF0004D175E /* Persistence.swift */; };
 		8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017E26E28DF0004D175E /* MARCO.xcdatamodeld */; };
+		8BDB5A6C26E84EDE0008AE6B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8B00017C26E28DF0004D175E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8B00017F26E28DF0004D175E /* MARCO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MARCO.xcdatamodel; sourceTree = "<group>"; };
 		8B00018126E28DF0004D175E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				8B00017326E28DEE004D175E /* MARCOApp.swift */,
 				8B00017526E28DEE004D175E /* ContentView.swift */,
+				8BDB5A6B26E84EDE0008AE6B /* LoginView.swift */,
 				8B00017726E28DF0004D175E /* Assets.xcassets */,
 				8B00017C26E28DF0004D175E /* Persistence.swift */,
 				8B00018126E28DF0004D175E /* Info.plist */,
@@ -147,6 +150,7 @@
 				8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */,
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
+				8BDB5A6C26E84EDE0008AE6B /* LoginView.swift in Sources */,
 				8B00017426E28DEE004D175E /* MARCOApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
