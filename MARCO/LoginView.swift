@@ -14,7 +14,7 @@ struct LoginView: View {
     var body: some View {
         return Group {
             if signInSuccess {
-                HomeView()
+                HomeDynamic()
             }
             else {
                 LoginFormView(signInSuccess: $signInSuccess)
