@@ -1,81 +1,123 @@
 //
 //  ContentView.swift
-//  MARCO
+//  prueba
 //
-//  Created by Valeria Conde on 9/3/21.
-//  comment for test
+//  Created by user192207 on 9/8/21.
+//
 
 import SwiftUI
-import CoreData
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+struct MenuContent: View {
     var body: some View {
         List {
-            //ContentView
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            VStack{
+                Image("avatar")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:  70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("Cerrar sesion")
+                    .foregroundColor(.blue)
             }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
+            .position(x:110, y:50)
+            .padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+            
+            HStack{
+                Image("notification")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("NOTIFICACIONES").font(.subheadline)
+                    .foregroundColor(.black)
+            }.padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+            
+            HStack{
+                Image("anuncio")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("ANUNCIOS").font(.subheadline)
+                    .foregroundColor(.black)
+            }.padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+            
+            HStack{
+                Image("calendar")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("EVENTOS").font(.subheadline)
+                    .foregroundColor(.black)
+            }.padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+            
+            HStack{
+                Image("config")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("CONFIGURACIÓN").font(.subheadline)
+                    .foregroundColor(.black)
+            }.padding(/*@START_MENU_TOKEN@*/[.top, .bottom, .trailing]/*@END_MENU_TOKEN@*/)
+            
         }
     }
+}
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+struct SideMenu: View {
+    let width: CGFloat
+    let isOpen: Bool
+    let menuClose: () -> Void
+    
+    var body: some View {
+        ZStack {
+            GeometryReader { _ in
+                EmptyView()
             }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            .background(Color.gray.opacity(0.3))
+            .opacity(self.isOpen ? 1.0 : 0.0)
+            .animation(Animation.easeIn.delay(0.25))
+            .onTapGesture {
+                self.menuClose()
+            }
+            
+            HStack {
+                MenuContent()
+                    .frame(width: self.width)
+                    .offset(x: self.isOpen ? 0 : -self.width)
+                    .animation(.default)
+                
+                Spacer()
             }
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+struct ContentView: View {
+    @State var menuOpen: Bool = false
+    
+    var body: some View {
+        ZStack {
+            if !self.menuOpen {
+                Button(action: {
+                    self.openMenu()
+                }, label: {
+                    Image("menu")
+                        .position(x:40)
+                })
+            }
+            
+            SideMenu(width: 270,
+                     isOpen: self.menuOpen,
+                     menuClose: self.openMenu)
+        }
+    }
+    
+    func openMenu() {
+        self.menuOpen.toggle()
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
+
