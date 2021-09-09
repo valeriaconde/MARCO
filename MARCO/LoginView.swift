@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView2: View {
+struct LoginView: View {
     
     @State var signInSuccess = false
     
@@ -21,7 +21,7 @@ struct LoginView2: View {
             }
         }
     }
-}
+}//
 
 struct LoginFormView : View {
     
