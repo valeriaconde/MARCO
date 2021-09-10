@@ -17,6 +17,7 @@
 		8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB026EAAEF400417A58 /* ExpoView.swift */; };
 		8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB226EAAF9000417A58 /* ExpoModel.swift */; };
 		8BE22B0626EA737600D7856D /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE22B0526EA737600D7856D /* PerfilView.swift */; };
+		C3959C4526EAC80700A1C542 /* HomeDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3959C4426EAC80700A1C542 /* HomeDynamic.swift */; };
 		C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3959EB826E87C9D008378B2 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		8BC02DB226EAAF9000417A58 /* ExpoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModel.swift; sourceTree = "<group>"; };
 		8BC02DB526EAB96F00417A58 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		8BE22B0526EA737600D7856D /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
+		C3959C4426EAC80700A1C542 /* HomeDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDynamic.swift; sourceTree = "<group>"; };
 		C3959EB826E87C9D008378B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 			children = (
 				8B00017326E28DEE004D175E /* MARCOApp.swift */,
 				8B00017526E28DEE004D175E /* ContentView.swift */,
+				C3959C4426EAC80700A1C542 /* HomeDynamic.swift */,
 				C3959EB826E87C9D008378B2 /* HomeView.swift */,
 				8BC02DB026EAAEF400417A58 /* ExpoView.swift */,
 				8BC02DB226EAAF9000417A58 /* ExpoModel.swift */,
@@ -176,6 +179,7 @@
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
 				8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */,
+				C3959C4526EAC80700A1C542 /* HomeDynamic.swift in Sources */,
 				C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */,
 				8B00017426E28DEE004D175E /* MARCOApp.swift in Sources */,
 			);

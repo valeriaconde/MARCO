@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MenuContent: View {
     var body: some View {
+
+        
         List {
             VStack{
                 Image("avatar")
@@ -87,7 +89,8 @@ struct SideMenu: View {
                 Spacer()
             }
         }
-    }
+    
+}
 }
 
 struct ContentView: View {
@@ -109,6 +112,7 @@ struct ContentView: View {
                      menuClose: self.openMenu)
         }
     }
+
     
     func openMenu() {
         self.menuOpen.toggle()
