@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpoView: View {
     
-    var left = truet
+    var left = true
     
     @StateObject var expo = ExpoModel()
     
