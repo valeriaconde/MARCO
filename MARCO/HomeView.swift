@@ -40,7 +40,7 @@ struct HomeView: View {
                         
                         ZStack {
                             NavigationLink(
-                                destination: ContentView(),
+                                destination: ExpoView(),
                                 label: {
                                     Image("explorerM_Home")
                                         .resizable()
@@ -49,7 +49,6 @@ struct HomeView: View {
                                         .padding(.all)
                                         .frame(height: 250)
                                 })
-                            
                              
                                 Text("Farsa y Artificio")
                                     .foregroundColor(.white)
@@ -59,7 +58,7 @@ struct HomeView: View {
                         }
                         ZStack {
                             NavigationLink(
-                                destination: ContentView(),
+                                destination: ExpoView(),
                                 label: {
                                     Image("reservaciones_Home")
                                         .resizable()
