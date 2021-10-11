@@ -14,6 +14,11 @@
 		8B00017B26E28DF0004D175E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B00017A26E28DF0004D175E /* Preview Assets.xcassets */; };
 		8B00017D26E28DF0004D175E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017C26E28DF0004D175E /* Persistence.swift */; };
 		8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017E26E28DF0004D175E /* MARCO.xcdatamodeld */; };
+		8B9487AD270FFA930012A291 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AC270FFA930012A291 /* LoginViewModel.swift */; };
+		8B9487AF270FFE320012A291 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AE270FFE320012A291 /* WebService.swift */; };
+		8B9487B127125A0F0012A291 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487B027125A0F0012A291 /* SignUpView.swift */; };
+		8B9487B327136D320012A291 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487B227136D320012A291 /* UserModel.swift */; };
+		8B9487B52713709D0012A291 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487B42713709D0012A291 /* UsersViewModel.swift */; };
 		8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB026EAAEF400417A58 /* ExpoView.swift */; };
 		8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB226EAAF9000417A58 /* ExpoModel.swift */; };
 		8BE22B0626EA737600D7856D /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE22B0526EA737600D7856D /* PerfilView.swift */; };
@@ -31,6 +36,11 @@
 		8B00017C26E28DF0004D175E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		8B00017F26E28DF0004D175E /* MARCO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MARCO.xcdatamodel; sourceTree = "<group>"; };
 		8B00018126E28DF0004D175E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B9487AC270FFA930012A291 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8B9487AE270FFE320012A291 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		8B9487B027125A0F0012A291 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		8B9487B227136D320012A291 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8B9487B42713709D0012A291 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		8BC02DB026EAAEF400417A58 /* ExpoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoView.swift; sourceTree = "<group>"; };
 		8BC02DB226EAAF9000417A58 /* ExpoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModel.swift; sourceTree = "<group>"; };
 		8BC02DB526EAB96F00417A58 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
@@ -70,13 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				8B00017326E28DEE004D175E /* MARCOApp.swift */,
+				8B9487AB270FF7DB0012A291 /* Services */,
+				8B9487AA270FF7D40012A291 /* ViewModel */,
+				8B9487A9270FF7CD0012A291 /* Models */,
+				8B9487A8270FF7C60012A291 /* Views */,
 				8B00017526E28DEE004D175E /* ContentView.swift */,
-				C3959C4426EAC80700A1C542 /* HomeDynamic.swift */,
-				C3959EB826E87C9D008378B2 /* HomeView.swift */,
-				8BC02DB026EAAEF400417A58 /* ExpoView.swift */,
-				8BC02DB226EAAF9000417A58 /* ExpoModel.swift */,
-				8BE22B0526EA737600D7856D /* PerfilView.swift */,
-				388BB2B426E98DBA009FA0D4 /* LoginView.swift */,
 				8B00017726E28DF0004D175E /* Assets.xcassets */,
 				8B00017C26E28DF0004D175E /* Persistence.swift */,
 				8B00018126E28DF0004D175E /* Info.plist */,
@@ -93,6 +101,45 @@
 				8B00017A26E28DF0004D175E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B9487A8270FF7C60012A291 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C3959EB826E87C9D008378B2 /* HomeView.swift */,
+				8BE22B0526EA737600D7856D /* PerfilView.swift */,
+				388BB2B426E98DBA009FA0D4 /* LoginView.swift */,
+				8BC02DB026EAAEF400417A58 /* ExpoView.swift */,
+				8B9487B027125A0F0012A291 /* SignUpView.swift */,
+				C3959C4426EAC80700A1C542 /* HomeDynamic.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8B9487A9270FF7CD0012A291 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BC02DB226EAAF9000417A58 /* ExpoModel.swift */,
+				8B9487B227136D320012A291 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B9487AA270FF7D40012A291 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B9487AC270FFA930012A291 /* LoginViewModel.swift */,
+				8B9487B42713709D0012A291 /* UsersViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8B9487AB270FF7DB0012A291 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8B9487AE270FFE320012A291 /* WebService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8BC02DB426EAB94100417A58 /* fonts */ = {
@@ -174,10 +221,15 @@
 			files = (
 				8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */,
 				388BB2B526E98DBA009FA0D4 /* LoginView.swift in Sources */,
+				8B9487AF270FFE320012A291 /* WebService.swift in Sources */,
+				8B9487AD270FFA930012A291 /* LoginViewModel.swift in Sources */,
+				8B9487B52713709D0012A291 /* UsersViewModel.swift in Sources */,
 				8BE22B0626EA737600D7856D /* PerfilView.swift in Sources */,
 				8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */,
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
+				8B9487B327136D320012A291 /* UserModel.swift in Sources */,
+				8B9487B127125A0F0012A291 /* SignUpView.swift in Sources */,
 				8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */,
 				C3959C4526EAC80700A1C542 /* HomeDynamic.swift in Sources */,
 				C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */,
