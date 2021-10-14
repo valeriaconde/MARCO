@@ -11,7 +11,11 @@ struct AudioguiasView: View {
     var body: some View {
         HStack{
             Gimage(name: "audioguia1_Explorer")
-            Gimage(name: "audioguia2_Explorer")
+            NavigationLink(
+                destination: AudioGuia(),
+                label: {
+                    Gimage(name: "audioguia2_Explorer")
+                })
             Gimage(name: "audioguia3_Explorer")
         }
     }
