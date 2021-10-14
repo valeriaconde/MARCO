@@ -15,7 +15,7 @@ struct Avatar: View {
             .scaledToFit()
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
             .overlay(Circle().stroke(lineWidth: 1))
-            .frame(width: 120, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         Text(userName)
             .font(.title)
             .foregroundColor(.white)

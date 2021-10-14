@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D35CE8B27166E04006DB590 /* AudioGuia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D35CE8A27166E04006DB590 /* AudioGuia.swift */; };
+		2D35CE8E27171BCD006DB590 /* AiWeiwei.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2D35CE8D27171BCD006DB590 /* AiWeiwei.mp3 */; };
 		388BB2B526E98DBA009FA0D4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BB2B426E98DBA009FA0D4 /* LoginView.swift */; };
 		3D3FABBF27160DA400BC4A75 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FABBE27160DA400BC4A75 /* Counters.swift */; };
 		3D3FABC52716116E00BC4A75 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FABC42716116E00BC4A75 /* Post.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D35CE8A27166E04006DB590 /* AudioGuia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioGuia.swift; sourceTree = "<group>"; };
+		2D35CE8D27171BCD006DB590 /* AiWeiwei.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AiWeiwei.mp3; path = ../../../../../../../Downloads/AiWeiwei.mp3; sourceTree = "<group>"; };
 		388BB2B426E98DBA009FA0D4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3D3FABBE27160DA400BC4A75 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		3D3FABC42716116E00BC4A75 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -92,6 +96,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D35CE8727166D9F006DB590 /* AudioGuiaViews */ = {
+			isa = PBXGroup;
+			children = (
+				2D35CE8C271717BA006DB590 /* Sounds */,
+				2D35CE8A27166E04006DB590 /* AudioGuia.swift */,
+			);
+			path = AudioGuiaViews;
+			sourceTree = "<group>";
+		};
+		2D35CE8C271717BA006DB590 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				2D35CE8D27171BCD006DB590 /* AiWeiwei.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		3D3FABCE2716245C00BC4A75 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +255,7 @@
 		8B9487A8270FF7C60012A291 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2D35CE8727166D9F006DB590 /* AudioGuiaViews */,
 				3DB99B5B27141E6F003115FD /* General Helpers */,
 				3DB99B5A27141E16003115FD /* PerfilViews */,
 				3DB99B5927141DCC003115FD /* ExpoViews */,
@@ -336,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B00017B26E28DF0004D175E /* Preview Assets.xcassets in Resources */,
+				2D35CE8E27171BCD006DB590 /* AiWeiwei.mp3 in Resources */,
 				8B00017826E28DF0004D175E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +372,7 @@
 			files = (
 				8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */,
 				388BB2B526E98DBA009FA0D4 /* LoginView.swift in Sources */,
+				2D35CE8B27166E04006DB590 /* AudioGuia.swift in Sources */,
 				3D3FABC9271613D300BC4A75 /* Gimage.swift in Sources */,
 				3D8895C02715D29A00A0B432 /* NameSection.swift in Sources */,
 				8B9487AF270FFE320012A291 /* WebService.swift in Sources */,
