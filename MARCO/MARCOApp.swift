@@ -20,7 +20,7 @@ struct MARCOApp: App {
                     //.environmentObject(media) ?? ? ?
                     .environmentObject(loginVM)
             } else {
-            LoginView()
+            HomeDynamic()
                 .environmentObject(loginVM)
             }
         }

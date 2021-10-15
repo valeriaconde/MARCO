@@ -44,7 +44,8 @@ struct AddUserResponse: Codable{
 class Webservice{
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
-        guard let url = URL(string: "http://localhost:3005/login") else {
+        //100.24.228.237:10025
+        guard let url = URL(string: "http://localhost:3005/users/login") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
