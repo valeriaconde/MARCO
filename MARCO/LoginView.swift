@@ -1,3 +1,10 @@
+//
+//  LoginView.swift
+//  MARCO
+//
+//  Created by user195184 on 9/7/21.
+//
+
 import SwiftUI
 
 struct LoginView: View {
@@ -28,7 +35,7 @@ struct LoginView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 180, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
-                    TextField("Contrasena", text: $password)
+                    TextField("Contrasena", text: $username)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 180, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.padding()
