@@ -22,7 +22,7 @@ struct HomeDynamic: View {
                         .tabItem {
                             Label("Menu", systemImage: "house.fill")
                         }.tag(1)
-                    Text("Tienda")
+                    ReservacionesView()
                         .tabItem { Label("Reservaciones", systemImage: "cart.fill")
                         }.tag(2)
                     PerfilView()
