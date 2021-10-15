@@ -30,7 +30,7 @@ struct HomeDynamic: View {
                             Label("Perfil", systemImage:"person.fill") }
                     
                 }.tag(3)
-                MenuButton()
+                //MenuButton()
             }
             
             
