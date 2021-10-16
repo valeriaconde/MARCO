@@ -39,9 +39,10 @@
 		8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB026EAAEF400417A58 /* ExpoView.swift */; };
 		8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC02DB226EAAF9000417A58 /* ExpoModel.swift */; };
 		8BE22B0626EA737600D7856D /* PerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE22B0526EA737600D7856D /* PerfilView.swift */; };
+		8BE8EA32271A3AF5003FC4F1 /* ReservacionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE8EA31271A3AF5003FC4F1 /* ReservacionesView.swift */; };
+		8BE8EA35271A6389003FC4F1 /* EscogeGuia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE8EA34271A6389003FC4F1 /* EscogeGuia.swift */; };
 		C3959C4526EAC80700A1C542 /* HomeDynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3959C4426EAC80700A1C542 /* HomeDynamic.swift */; };
 		C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3959EB826E87C9D008378B2 /* HomeView.swift */; };
-		C3E461C22719F110005C97BB /* ReservacionesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E461C12719F110005C97BB /* ReservacionesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,9 +81,10 @@
 		8BC02DB226EAAF9000417A58 /* ExpoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoModel.swift; sourceTree = "<group>"; };
 		8BC02DB526EAB96F00417A58 /* Urbanist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Urbanist.ttf; sourceTree = "<group>"; };
 		8BE22B0526EA737600D7856D /* PerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilView.swift; sourceTree = "<group>"; };
+		8BE8EA31271A3AF5003FC4F1 /* ReservacionesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservacionesView.swift; sourceTree = "<group>"; };
+		8BE8EA34271A6389003FC4F1 /* EscogeGuia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscogeGuia.swift; sourceTree = "<group>"; };
 		C3959C4426EAC80700A1C542 /* HomeDynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDynamic.swift; sourceTree = "<group>"; };
 		C3959EB826E87C9D008378B2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		C3E461C12719F110005C97BB /* ReservacionesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservacionesView.swift; path = "../../../../Downloads/MARCO-rodrigodiego/MARCO/MARCO/Views/HomeViews/Views Helpers/ReservacionesView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +248,7 @@
 		8B9487A8270FF7C60012A291 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C3E461C12719F110005C97BB /* ReservacionesView.swift */,
+				8BE8EA33271A635D003FC4F1 /* ReservarViews */,
 				2D35CE8727166D9F006DB590 /* AudioGuiaViews */,
 				3DB99B5B27141E6F003115FD /* General Helpers */,
 				3DB99B5A27141E16003115FD /* PerfilViews */,
@@ -290,6 +292,15 @@
 				8BC02DB526EAB96F00417A58 /* Urbanist.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		8BE8EA33271A635D003FC4F1 /* ReservarViews */ = {
+			isa = PBXGroup;
+			children = (
+				8BE8EA31271A3AF5003FC4F1 /* ReservacionesView.swift */,
+				8BE8EA34271A6389003FC4F1 /* EscogeGuia.swift */,
+			);
+			path = ReservarViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,7 +377,7 @@
 				2D35CE8B27166E04006DB590 /* AudioGuia.swift in Sources */,
 				3D3FABC9271613D300BC4A75 /* Gimage.swift in Sources */,
 				3D8895C02715D29A00A0B432 /* NameSection.swift in Sources */,
-				C3E461C22719F110005C97BB /* ReservacionesView.swift in Sources */,
+				8BE8EA32271A3AF5003FC4F1 /* ReservacionesView.swift in Sources */,
 				8B9487AF270FFE320012A291 /* WebService.swift in Sources */,
 				3D8895C62715DFC700A0B432 /* CapuslasView.swift in Sources */,
 				3D8895C22715D57100A0B432 /* ExposicionesView.swift in Sources */,
@@ -390,6 +401,7 @@
 				3D3FABC7271611F700BC4A75 /* PostsView.swift in Sources */,
 				3D3FABBF27160DA400BC4A75 /* Counters.swift in Sources */,
 				3D3FABCB271622E900BC4A75 /* VideosView.swift in Sources */,
+				8BE8EA35271A6389003FC4F1 /* EscogeGuia.swift in Sources */,
 				3D8895C82715E8C700A0B432 /* Box.swift in Sources */,
 				3D3FABC52716116E00BC4A75 /* Post.swift in Sources */,
 				C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */,
