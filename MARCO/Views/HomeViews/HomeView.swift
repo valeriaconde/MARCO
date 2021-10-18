@@ -51,17 +51,20 @@ struct HomeView: View {
                                 .padding(.horizontal, 20)
                                 .font(.title)
                             
-                            Image("marco3D")
-                                .resizable()
-                                .scaledToFill()
-                                .cornerRadius(5)
-                                .padding(5)
-                            
+                            NavigationLink(
+                                destination: WebView(html: "https://www.museomarco.360s.mx/"),
+                                label: {
+                                Image("marco3D")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .cornerRadius(5)
+                                    .padding(5)
+                                })
                         }
                     }//Vstack principal
  
                 }
-                
+
             }
         }
         }
@@ -71,6 +74,11 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        if #available(iOS 15.0, *) {
+            HomeView()
+                .previewInterfaceOrientation(.portrait)
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

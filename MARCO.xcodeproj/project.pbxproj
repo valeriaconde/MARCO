@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D35CE8B27166E04006DB590 /* AudioGuia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D35CE8A27166E04006DB590 /* AudioGuia.swift */; };
+		2D47C1D3271C9F760067E6DF /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47C1D2271C9F760067E6DF /* WebView.swift */; };
 		388BB2B526E98DBA009FA0D4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BB2B426E98DBA009FA0D4 /* LoginView.swift */; };
 		3D3FABBF27160DA400BC4A75 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FABBE27160DA400BC4A75 /* Counters.swift */; };
 		3D3FABC52716116E00BC4A75 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3FABC42716116E00BC4A75 /* Post.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		2D35CE8A27166E04006DB590 /* AudioGuia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioGuia.swift; sourceTree = "<group>"; };
+		2D47C1D2271C9F760067E6DF /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		388BB2B426E98DBA009FA0D4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3D3FABBE27160DA400BC4A75 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		3D3FABC42716116E00BC4A75 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				3D8895C52715DFC700A0B432 /* CapuslasView.swift */,
 				3D8895C12715D57100A0B432 /* ExposicionesView.swift */,
 				3D3FABCA271622E900BC4A75 /* VideosView.swift */,
+				2D47C1D2271C9F760067E6DF /* WebView.swift */,
 			);
 			path = "Views Helpers";
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				3D3FABC9271613D300BC4A75 /* Gimage.swift in Sources */,
 				3D8895C02715D29A00A0B432 /* NameSection.swift in Sources */,
 				8BE8EA32271A3AF5003FC4F1 /* ReservacionesView.swift in Sources */,
+				2D47C1D3271C9F760067E6DF /* WebView.swift in Sources */,
 				8B9487AF270FFE320012A291 /* WebService.swift in Sources */,
 				3D8895C62715DFC700A0B432 /* CapuslasView.swift in Sources */,
 				3D8895C22715D57100A0B432 /* ExposicionesView.swift in Sources */,
