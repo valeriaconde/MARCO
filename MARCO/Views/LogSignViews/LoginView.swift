@@ -1,5 +1,5 @@
 //
-//  LoginView2.swift
+//  LoginView.swift
 //  MARCO
 //
 //  Created by Diego Rodriguez on 08/09/21.
