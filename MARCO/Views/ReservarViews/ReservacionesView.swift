@@ -16,6 +16,8 @@ struct ReservacionesView: View {
     @State private var personas = 0
     @State private var opcion = 2
     @State private var showAlert = false
+    @State private var selectorIndex = 0
+    @State private var numbers = ["Guia 1", "Guia 2", "Guia 3"]
     
     var body: some View {
         NavigationView{
@@ -69,7 +71,7 @@ struct ReservacionesView: View {
 
                                 /*Text(fecha,style:.date)
                                     .environment(\.locale, Locale.init(identifier: "es"))*/
-                            VStack(){
+                                VStack(alignment: .leading){
                                 Button(action: {
                                     print("Si jala 1")
                                 }, label: {
@@ -80,9 +82,25 @@ struct ReservacionesView: View {
                                 }, label: {
                                     Text("Horario 2")
                                 })
-                                .padding(.bottom,10)
-                            }
-                            
+                                
+                                VStack{
+                                    ForEach(0..<numbers.count) { index in
+                                        Button(action: {
+                                            print(self.numbers[index])
+                                        }, label: {
+                                            Text(self.numbers[index]).tag(index)
+                                        })
+                                        .foregroundColor(Color("Rose"))
+                                        
+                                        .frame(width: 100)
+                    
+                           
+                                }
+                                }
+                                }
+
+                                
+                          
                             Text("Reservacion para \(personas) personas")
                                 .bold()
                             Picker("", selection: $personas){
