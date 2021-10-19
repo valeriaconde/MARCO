@@ -13,6 +13,7 @@ struct ReservacionesView: View {
     
     @State private var fecha = Date()
     @State private var personas = 0
+    @State private var name = String()
     @State private var opcion = 2
     @State private var showAlert = false
     @State private var selectorIndex = 0
@@ -111,14 +112,18 @@ struct ReservacionesView: View {
                                 }
                                 
                             }
-                
+                            
+                            Text("Reservacion a nombre de: \(name) ")
+                                    .bold()
+                                TextField("Enter your name", text: $name)
+                                            
                             
                             Button(action: {
                                 // Get name of reservation
-                                let tmpUser = ""
+                                //let tmpUser = ""
                                 
                                 // Call to view model
-                                reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: tmpUser)
+                                /* reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: tmpUser)*/
                                 
                                 
                                 // Confirmation alert
@@ -132,7 +137,7 @@ struct ReservacionesView: View {
                             .frame(width: 100)
                             .position(x: 185, y: 50)
                             .alert(isPresented: $showAlert) {
-                                Alert(title: Text("Reservado"), message: Text("Para \(personas) personas el \(fecha) en el \(horario) con \(guia)"), dismissButton: .default(Text("Ok")))
+                                Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(fecha) en el \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
                             }
                                 
                         } // vstack
