@@ -59,7 +59,7 @@ struct GetHorariosRequestBody: Codable {
 
 struct GetHorariosResponse: Codable{
     let message: String?
-    let success: Bool?
+    let success: [String]?
 }
 
 
@@ -164,42 +164,25 @@ class Webservice{
     // RESERVACIONES WEB SERVICES //
     
     func getHorariosDisponibles(date: Date, completion: @escaping (Result<[String], CommunicationError>) -> Void) {
-        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/\(date)") else {
+        
+        // formatea la fecha para coincidir con la API
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "yyyy-mm-dd"
+        let formattedDate = formatter3.string(from: date)
+        
+        // endpoint
+        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/\(formattedDate)") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
         
-        let body = GetHorariosRequestBody(date: date)
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = try? JSONEncoder().encode(body)
-        
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            // in case venga vacio
-            guard let data = data, error == nil else {
-                completion(.failure(.custom(errorMessage: "No data")))
-                return
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            let Response = try! JSONDecoder().decode(GetHorariosResponse.self, from: data!)
+           
+            DispatchQueue.main.async {
+                //completion(.success(Response))
             }
-            
-            // decodifica la respuesta ---- PENDIENTE
-            guard let GetHorariosResponse = try? JSONDecoder().decode(GetHorariosResponse.self, from: data) else {
-                completion(.failure(.connectionError))
-                return
-            }
-            
-            /*
-            guard let token = AddUserResponse.success else {
-                completion(.failure(.connectionError))
-                return
-            }
-            */
-            
-            //completion(.success(token))
-            
-            
         }.resume()
         
     }

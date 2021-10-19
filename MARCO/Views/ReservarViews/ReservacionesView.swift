@@ -94,12 +94,13 @@ struct ReservacionesView: View {
                                             Text(self.guias[index]).tag(index)
                                         })
                                         .foregroundColor(Color("Rose"))
-                                        
+                                            
                                         .frame(width: 100)
                     
                            
                                         } // for each
-                                    } // vstack
+                                    }// vstack
+                                    .padding(.bottom)
                                 } // vstack
                             
                             
@@ -119,11 +120,8 @@ struct ReservacionesView: View {
                                             
                             
                             Button(action: {
-                                // Get name of reservation
-                                //let tmpUser = ""
-                                
                                 // Call to view model
-                                /* reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: tmpUser)*/
+                                 reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: name)
                                 
                                 
                                 // Confirmation alert

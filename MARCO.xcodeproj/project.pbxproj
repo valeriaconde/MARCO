@@ -33,6 +33,11 @@
 		8B00017D26E28DF0004D175E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017C26E28DF0004D175E /* Persistence.swift */; };
 		8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B00017E26E28DF0004D175E /* MARCO.xcdatamodeld */; };
 		8B6F9E47271E868900F30CF5 /* ReservaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E46271E868900F30CF5 /* ReservaViewModel.swift */; };
+		8B6F9E4A271F415E00F30CF5 /* CapsulaArtista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E49271F415E00F30CF5 /* CapsulaArtista.swift */; };
+		8B6F9E4D271F419600F30CF5 /* ArtistImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E4C271F419600F30CF5 /* ArtistImage.swift */; };
+		8B6F9E4F271F41C000F30CF5 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E4E271F41C000F30CF5 /* ExpandableText.swift */; };
+		8B6F9E51271F41D900F30CF5 /* ExpoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E50271F41D900F30CF5 /* ExpoButton.swift */; };
+		8B6F9E53271F41FB00F30CF5 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E52271F41FB00F30CF5 /* Script.swift */; };
 		8B9487AD270FFA930012A291 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AC270FFA930012A291 /* LoginViewModel.swift */; };
 		8B9487AF270FFE320012A291 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AE270FFE320012A291 /* WebService.swift */; };
 		8B9487B127125A0F0012A291 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487B027125A0F0012A291 /* SignUpView.swift */; };
@@ -76,6 +81,11 @@
 		8B00017F26E28DF0004D175E /* MARCO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MARCO.xcdatamodel; sourceTree = "<group>"; };
 		8B00018126E28DF0004D175E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B6F9E46271E868900F30CF5 /* ReservaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservaViewModel.swift; sourceTree = "<group>"; };
+		8B6F9E49271F415E00F30CF5 /* CapsulaArtista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsulaArtista.swift; sourceTree = "<group>"; };
+		8B6F9E4C271F419600F30CF5 /* ArtistImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistImage.swift; sourceTree = "<group>"; };
+		8B6F9E4E271F41C000F30CF5 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
+		8B6F9E50271F41D900F30CF5 /* ExpoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoButton.swift; sourceTree = "<group>"; };
+		8B6F9E52271F41FB00F30CF5 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 		8B9487AC270FFA930012A291 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B9487AE270FFE320012A291 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		8B9487B027125A0F0012A291 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -250,9 +260,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8B6F9E48271F414000F30CF5 /* CapsulaView */ = {
+			isa = PBXGroup;
+			children = (
+				8B6F9E49271F415E00F30CF5 /* CapsulaArtista.swift */,
+				8B6F9E4B271F418400F30CF5 /* Helpers */,
+			);
+			path = CapsulaView;
+			sourceTree = "<group>";
+		};
+		8B6F9E4B271F418400F30CF5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8B6F9E4C271F419600F30CF5 /* ArtistImage.swift */,
+				8B6F9E4E271F41C000F30CF5 /* ExpandableText.swift */,
+				8B6F9E50271F41D900F30CF5 /* ExpoButton.swift */,
+				8B6F9E52271F41FB00F30CF5 /* Script.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8B9487A8270FF7C60012A291 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B6F9E48271F414000F30CF5 /* CapsulaView */,
 				8BE8EA33271A635D003FC4F1 /* ReservarViews */,
 				2D35CE8727166D9F006DB590 /* AudioGuiaViews */,
 				3DB99B5B27141E6F003115FD /* General Helpers */,
@@ -380,6 +411,7 @@
 			files = (
 				8BC02DB126EAAEF400417A58 /* ExpoView.swift in Sources */,
 				388BB2B526E98DBA009FA0D4 /* LoginView.swift in Sources */,
+				8B6F9E4F271F41C000F30CF5 /* ExpandableText.swift in Sources */,
 				2D35CE8B27166E04006DB590 /* AudioGuia.swift in Sources */,
 				3D3FABC9271613D300BC4A75 /* Gimage.swift in Sources */,
 				3D8895C02715D29A00A0B432 /* NameSection.swift in Sources */,
@@ -388,6 +420,7 @@
 				8B9487AF270FFE320012A291 /* WebService.swift in Sources */,
 				3D8895C62715DFC700A0B432 /* CapuslasView.swift in Sources */,
 				3D8895C22715D57100A0B432 /* ExposicionesView.swift in Sources */,
+				8B6F9E51271F41D900F30CF5 /* ExpoButton.swift in Sources */,
 				3DB99B5627141C7E003115FD /* SideMenu.swift in Sources */,
 				3DB99B5D27141EA5003115FD /* Head.swift in Sources */,
 				8B9487AD270FFA930012A291 /* LoginViewModel.swift in Sources */,
@@ -396,9 +429,11 @@
 				8BE22B0626EA737600D7856D /* PerfilView.swift in Sources */,
 				8B00018026E28DF0004D175E /* MARCO.xcdatamodeld in Sources */,
 				3D8895CA2715EA3C00A0B432 /* Avatar.swift in Sources */,
+				8B6F9E4D271F419600F30CF5 /* ArtistImage.swift in Sources */,
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
 				3D3FABCD271623AC00BC4A75 /* AudioguiasView.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
+				8B6F9E4A271F415E00F30CF5 /* CapsulaArtista.swift in Sources */,
 				8B9487B327136D320012A291 /* UserModel.swift in Sources */,
 				8B9487B127125A0F0012A291 /* SignUpView.swift in Sources */,
 				8BC02DB326EAAF9000417A58 /* ExpoModel.swift in Sources */,
@@ -413,6 +448,7 @@
 				3D8895C82715E8C700A0B432 /* Box.swift in Sources */,
 				3D3FABC52716116E00BC4A75 /* Post.swift in Sources */,
 				C3959EB926E87C9D008378B2 /* HomeView.swift in Sources */,
+				8B6F9E53271F41FB00F30CF5 /* Script.swift in Sources */,
 				8B00017426E28DEE004D175E /* MARCOApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
