@@ -15,13 +15,12 @@ struct LoginView: View {
         return Group {
             if signInSuccess {
                 HomeDynamic()
-            }
-            else {
+            } else {
                 LoginFormView(signInSuccess: $signInSuccess)
             }
         }
     }
-}//
+}
 
 struct LoginFormView : View {
     

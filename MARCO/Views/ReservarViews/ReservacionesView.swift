@@ -9,13 +9,19 @@
 import SwiftUI
 import UIKit
 
-
 struct ReservacionesView: View {
     
     @State private var fecha = Date()
     @State private var personas = 0
     @State private var opcion = 2
     @State private var showAlert = false
+    @State private var selectorIndex = 0
+    @State private var guias = ["Guia 1", "Guia 2", "Guia 3"]
+    @State private var guia = String()
+    @State private var horario = String()
+    
+    
+    @EnvironmentObject private var reservaVM : ReservaViewModel
     
     var body: some View {
         NavigationView{
@@ -47,7 +53,6 @@ struct ReservacionesView: View {
                                     } // link
                                     .padding(.horizontal, 30)
                                     
-                                    
                                     } //hstack
                             } // zstack
                     
@@ -63,26 +68,41 @@ struct ReservacionesView: View {
                                     .datePickerStyle(GraphicalDatePickerStyle())
                                     .accentColor(Color("Rose"))
                                     .environment(\.locale, Locale.init(identifier: "es"))
+                                    
 
                                 Text("Horarios disponibles")
                                         .bold()
 
-                                /*Text(fecha,style:.date)
-                                    .environment(\.locale, Locale.init(identifier: "es"))*/
-                            VStack(){
-                                Button(action: {
-                                    print("Si jala 1")
-                                }, label: {
-                                    Text("Horario 1")
-                                })
-                                Button(action: {
-                                    print("Si jala 2")
-                                }, label: {
-                                    Text("Horario 2")
-                                })
-                                .padding(.bottom,10)
-                            }
+                                VStack(alignment: .leading){
+                                    Button(action: {
+                                        horario = "Horario 1"
+                                    }, label: {
+                                        Text("Horario 1")
+                                    })
+                                    Button(action: {
+                                        horario = "Horario 2"
+                                    }, label: {
+                                        Text("Horario 2")
+                                    })
+                                
+                                    VStack{
+                                        ForEach(0..<guias.count) { index in
+                                            Button(action: {
+                                                guia = (self.guias[index])
+                                            }, label: {
+                                            Text(self.guias[index]).tag(index)
+                                        })
+                                        .foregroundColor(Color("Rose"))
+                                        
+                                        .frame(width: 100)
+                    
+                           
+                                        } // for each
+                                    } // vstack
+                                } // vstack
                             
+                            
+                          
                             Text("Reservacion para \(personas) personas")
                                 .bold()
                             Picker("", selection: $personas){
@@ -92,12 +112,17 @@ struct ReservacionesView: View {
                                 
                             }
                 
-                                
-                                
-                                
+                            
                             Button(action: {
+                                // Get name of reservation
+                                let tmpUser = ""
+                                
+                                // Call to view model
+                                reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: tmpUser)
+                                
+                                
+                                // Confirmation alert
                                 showAlert = true
-
                             }) {
                                 Text("Reservar")
                                     .frame(width: 200 , height: 50, alignment: .center)
@@ -107,10 +132,9 @@ struct ReservacionesView: View {
                             .frame(width: 100)
                             .position(x: 185, y: 50)
                             .alert(isPresented: $showAlert) {
-                                Alert(title: Text("Reservado"), message: Text("Para \(personas) personas el \(fecha) con el guia X"), dismissButton: .default(Text("Ok")))
+                                Alert(title: Text("Reservado"), message: Text("Para \(personas) personas el \(fecha) en el \(horario) con \(guia)"), dismissButton: .default(Text("Ok")))
                             }
                                 
-                               
                         } // vstack
                         .padding(28)
                         } // vstack
