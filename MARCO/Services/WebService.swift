@@ -190,10 +190,12 @@ class Webservice{
                 return
             }
             
+            /*
             guard let token = AddUserResponse.success else {
                 completion(.failure(.connectionError))
                 return
             }
+            */
             
             completion(.success(token))
             
