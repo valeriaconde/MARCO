@@ -22,18 +22,20 @@ struct ReservacionesView: View {
     @State private var guia = String()
     @State private var horario = String()
     
-    
-        
-    
     @EnvironmentObject private var reservaVM : ReservaViewModel
     
-    
     private var dateProxy:Binding<Date> {
+        
         Binding<Date>(get: {self.fecha }, set: {
             self.fecha = $0
             print(fecha)
-            reservaVM.getHorariosDisponibles(date: fecha)
-            self.horariosDisponibles = reservaVM.horariosDisponibles
+            
+            DispatchQueue.main.async {
+                
+                reservaVM.getHorariosDisponibles(date: fecha)
+                self.horariosDisponibles = reservaVM.horariosDisponibles
+            }
+            
         })
     }
     
@@ -53,122 +55,100 @@ struct ReservacionesView: View {
             ScrollView{
                 VStack{
                     VStack{
-                    Head(title: "#Reservaciones")
-                        .padding(.bottom, 50)
+                        Head(title: "#Reservaciones")
+                            .padding(.bottom, 50)
+                        
                         ZStack{
                             HStack{
                                 Link(destination: URL(string: "https://www.marco.org.mx//boletos/")!){
                                     VStack{
-                                        Image(systemName: "ticket.fill").foregroundColor(.black)
-                                        .font(.largeTitle)
+                                        Image(systemName: "ticket.fill")
+                                            .foregroundColor(.black)
+                                            .font(.largeTitle)
                                             .padding(.bottom, -3)
-                                            Text("Compra boletos").foregroundColor(Color("Rose"))
-                                        }
+                                        Text("Compra boletos").foregroundColor(Color("Rose"))
                                     }
-                                        .padding(.horizontal, 30)
+                                }
+                                .padding(.horizontal, 30)
                                     
-                                    Link(destination: URL(string: "https://www.marco.org.mx/restaurante/")!){
-                                        VStack{
-                                            Image("icono_restaurante").foregroundColor(Color("Rose"))
-                                            Text("Restaurantes").foregroundColor(Color("Rose"))
-                                        }
-                                    } // link
-                                    .padding(.horizontal, 30)
+                                Link(destination: URL(string: "https://www.marco.org.mx/restaurante/")!){
+                                    VStack{
+                                        Image("icono_restaurante").foregroundColor(Color("Rose"))
+                                        Text("Restaurantes").foregroundColor(Color("Rose"))
+                                    }
+                                } // link
+                                .padding(.horizontal, 30)
                                     
-                                    } //hstack
-                            } // zstack
+                            } //hstack
+                        } // zstack
                     
                         
+                        VStack(alignment: .leading){
+                            // Calendario
+                            Text("Reserva una visita guiada")
+                                .font(.title2)
+                                .padding(.top, 15)
+                                .padding(.bottom, 15)
+                                .foregroundColor(Color("Rose"))
+
+                            DatePicker("Reservaciones", selection: dateProxy, in: dateClosedRange, displayedComponents: [.date])
+                                .datePickerStyle(GraphicalDatePickerStyle())
+                                .accentColor(Color("Rose"))
+                                .environment(\.locale, Locale.init(identifier: "es"))
+
+                            // FECHAS CON HORARIOS
+                            // 21 de octubre y 2 de noviembre
+                            // Botones de horarios
+                            Text("Horarios disponibles")
+                                .bold()
+                                
                             VStack(alignment: .leading){
-                                Text("Reserva una visita guiada")
-                                    .font(.title2)
-                                    .padding(.top, 15)
-                                    .padding(.bottom, 15)
-                                    .foregroundColor(Color("Rose"))
-
-                                DatePicker("Reservaciones", selection: dateProxy, in: dateClosedRange, displayedComponents: [.date])
-                                    .datePickerStyle(GraphicalDatePickerStyle())
-                                    .accentColor(Color("Rose"))
-                                    .environment(\.locale, Locale.init(identifier: "es"))
-                                
-                                    
-
-                                Text("Horarios disponibles")
-                                        .bold()
-                                
-
-                                VStack(alignment: .leading){
-                                    
-                                    ForEach(horariosDisponibles) { item in
-                                        Button(action: {
-                                            horario = item.hora
-                                        }, label: {
-                                            Text(item.hora)
-                                                .foregroundColor(Color("Rose"))
-                                                .padding()
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 12)
-                                                        .stroke(Color("Rose"), lineWidth: 4)
-                                                )
-                                        })
-                                        
-                                    }
-                                    
+                                ForEach(horariosDisponibles) { item in
                                     Button(action: {
-                                        horario = "Horario 1"
+                                        horario = item.hora
                                     }, label: {
-                                        Text("Horario 1")
+                                        Text(item.hora)
                                             .foregroundColor(Color("Rose"))
                                             .padding()
                                             .overlay(
                                                 RoundedRectangle(cornerRadius: 12)
                                                     .stroke(Color("Rose"), lineWidth: 4)
                                             )
-                                    })
+                                    }) // button
+                                } // foreach
                                     
-                                    Button(action: {
-                                        horario = "Horario 2"
-                                    }, label: {
-                                        Text("Horario 2")
-                                            .foregroundColor(Color("Rose"))
-                                            .padding()
-                                            .border(Color("Rose"))
-                                            .cornerRadius(3.0)
-                                    })
-                                
-                                    VStack{
-                                        ForEach(0..<guias.count) { index in
-                                            Button(action: {
-                                                guia = (self.guias[index])
-                                            }, label: {
-                                            Text(self.guias[index]).tag(index)
+                                // botones de guias
+                                VStack{
+                                    ForEach(0..<guias.count) { index in
+                                        Button(action: {
+                                            guia = (self.guias[index])
+                                        }, label: {
+                                        Text(self.guias[index]).tag(index)
                                         })
                                         .foregroundColor(Color("Rose"))
-                                            
                                         .frame(width: 100)
-                    
-                           
-                                        } // for each
-                                    }// vstack
-                                    .padding(.bottom)
+                                    } // for each
                                 } // vstack
+                                .padding(.bottom)
+                            } // vstack
                             
                             
-                          
+                            // Picker para numero de personas en la reserva
                             Text("Reservacion para \(personas) personas")
                                 .bold()
                             Picker("", selection: $personas){
                                 ForEach(1...10, id: \.self){
                                     Text("\($0)")
                                 }
-                                
                             }
                             
+                            // Textfield para recibir nombre de la persona de la reserva
                             Text("Reservacion a nombre de: \(name) ")
-                                    .bold()
-                                TextField("Enter your name", text: $name)
-                                            
-                            
+                                .bold()
+                            TextField("Enter your name", text: $name)
+                                         
+                                
+                            // boton para concluir la reserva
                             Button(action: {
                                 // Call to view model
                                  reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: name)
@@ -180,13 +160,13 @@ struct ReservacionesView: View {
                                 Text("Reservar")
                                     .frame(width: 200 , height: 50, alignment: .center)
                             }
-                            .foregroundColor(.white)
-                            .background(Color("Rose"))
-                            .frame(width: 100)
-                            .position(x: 185, y: 50)
-                            .alert(isPresented: $showAlert) {
-                                Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(fecha) en el \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
-                            }
+                                .foregroundColor(.white)
+                                .background(Color("Rose"))
+                                .frame(width: 100)
+                                .position(x: 185, y: 50)
+                                .alert(isPresented: $showAlert) {
+                                    Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(fecha) en el \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
+                                }
                                 
                         } // vstack
                         .padding(28)

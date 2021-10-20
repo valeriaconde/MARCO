@@ -28,16 +28,19 @@ class ReservaViewModel : ObservableObject {
     
     func getHorariosDisponibles(date: Date) {
         
-        Webservice().getHorariosDisponibles(date: date) { result in
-            switch (result) {
-                case .success(let succ):
-                    print(succ)
-                    self.horariosDisponibles = succ
-                    
-                case .failure(let error):
-                    print(error)
-            } // switch
-        } // webservice
+        DispatchQueue.main.async {
+            Webservice().getHorariosDisponibles(date: date) { result in
+                switch (result) {
+                    case .success(let succ):
+                        print(succ)
+                        self.horariosDisponibles = succ
+                        
+                    case .failure(let error):
+                        print(error)
+                } // switch
+            } // webservice
+        }
+        
     } // func
     
 } // class
