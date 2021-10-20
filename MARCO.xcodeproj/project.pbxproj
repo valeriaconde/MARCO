@@ -38,6 +38,7 @@
 		8B6F9E4F271F41C000F30CF5 /* ExpandableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E4E271F41C000F30CF5 /* ExpandableText.swift */; };
 		8B6F9E51271F41D900F30CF5 /* ExpoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E50271F41D900F30CF5 /* ExpoButton.swift */; };
 		8B6F9E53271F41FB00F30CF5 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E52271F41FB00F30CF5 /* Script.swift */; };
+		8B6F9E57271F9A4A00F30CF5 /* HorariosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F9E56271F9A4A00F30CF5 /* HorariosModel.swift */; };
 		8B9487AD270FFA930012A291 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AC270FFA930012A291 /* LoginViewModel.swift */; };
 		8B9487AF270FFE320012A291 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487AE270FFE320012A291 /* WebService.swift */; };
 		8B9487B127125A0F0012A291 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9487B027125A0F0012A291 /* SignUpView.swift */; };
@@ -86,6 +87,7 @@
 		8B6F9E4E271F41C000F30CF5 /* ExpandableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableText.swift; sourceTree = "<group>"; };
 		8B6F9E50271F41D900F30CF5 /* ExpoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpoButton.swift; sourceTree = "<group>"; };
 		8B6F9E52271F41FB00F30CF5 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
+		8B6F9E56271F9A4A00F30CF5 /* HorariosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorariosModel.swift; sourceTree = "<group>"; };
 		8B9487AC270FFA930012A291 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8B9487AE270FFE320012A291 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		8B9487B027125A0F0012A291 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				8BC02DB226EAAF9000417A58 /* ExpoModel.swift */,
 				8B9487B227136D320012A291 /* UserModel.swift */,
+				8B6F9E56271F9A4A00F30CF5 /* HorariosModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				3D8895CA2715EA3C00A0B432 /* Avatar.swift in Sources */,
 				8B6F9E4D271F419600F30CF5 /* ArtistImage.swift in Sources */,
 				8B00017D26E28DF0004D175E /* Persistence.swift in Sources */,
+				8B6F9E57271F9A4A00F30CF5 /* HorariosModel.swift in Sources */,
 				3D3FABCD271623AC00BC4A75 /* AudioguiasView.swift in Sources */,
 				8B00017626E28DEE004D175E /* ContentView.swift in Sources */,
 				8B6F9E4A271F415E00F30CF5 /* CapsulaArtista.swift in Sources */,

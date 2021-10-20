@@ -10,10 +10,16 @@ import SwiftUI
 struct CapuslasView: View {
     var body: some View {
         HStack{
-            CapImage(nImage: "MaGa_Explorer", nArtist: "MARIO GARCIA")
-            CapImage(nImage: "MaSm_Explorer", nArtist: "MELANIE SMITH")
-            CapImage(nImage: "RaLo_Explorer", nArtist: "RAFAEL LOZANO")
-            CapImage(nImage: "Ca&Mi_Explorer", nArtist: "CARDIFF & MILLER")
+            
+            NavigationLink(
+                destination: CapsulaArtista(),
+                label: {
+                    CapImage(nImage: "MaGa_Explorer", nArtist: "MARIO GARCIA")
+                })
+            
+                CapImage(nImage: "MaSm_Explorer", nArtist: "MELANIE SMITH")
+                CapImage(nImage: "RaLo_Explorer", nArtist: "RAFAEL LOZANO")
+                CapImage(nImage: "Ca&Mi_Explorer", nArtist: "CARDIFF & MILLER")
         }
     }
 }

@@ -18,13 +18,34 @@ struct ReservacionesView: View {
     @State private var showAlert = false
     @State private var selectorIndex = 0
     @State private var guias = ["Guia 1", "Guia 2", "Guia 3"]
+    @State private var horariosDisponibles = [HorarioModel]()
     @State private var guia = String()
     @State private var horario = String()
     
     
+        
+    
     @EnvironmentObject private var reservaVM : ReservaViewModel
     
+    
+    private var dateProxy:Binding<Date> {
+        Binding<Date>(get: {self.fecha }, set: {
+            self.fecha = $0
+            print(fecha)
+            reservaVM.getHorariosDisponibles(date: fecha)
+            self.horariosDisponibles = reservaVM.horariosDisponibles
+        })
+    }
+    
+    var dateClosedRange: ClosedRange<Date> {
+        let min = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
+        let max = Calendar.current.date(byAdding: .year, value: 1, to: Date())!
+        return min...max
+    }
+    
     var body: some View {
+        
+        
         NavigationView{
         ZStack{
             Color("White")
@@ -57,7 +78,7 @@ struct ReservacionesView: View {
                                     } //hstack
                             } // zstack
                     
-            
+                        
                             VStack(alignment: .leading){
                                 Text("Reserva una visita guiada")
                                     .font(.title2)
@@ -65,25 +86,54 @@ struct ReservacionesView: View {
                                     .padding(.bottom, 15)
                                     .foregroundColor(Color("Rose"))
 
-                                DatePicker("Reservaciones", selection: $fecha, in: Date()..., displayedComponents: [.date])
+                                DatePicker("Reservaciones", selection: dateProxy, in: dateClosedRange, displayedComponents: [.date])
                                     .datePickerStyle(GraphicalDatePickerStyle())
                                     .accentColor(Color("Rose"))
                                     .environment(\.locale, Locale.init(identifier: "es"))
+                                
                                     
 
                                 Text("Horarios disponibles")
                                         .bold()
+                                
 
                                 VStack(alignment: .leading){
+                                    
+                                    ForEach(horariosDisponibles) { item in
+                                        Button(action: {
+                                            horario = item.hora
+                                        }, label: {
+                                            Text(item.hora)
+                                                .foregroundColor(Color("Rose"))
+                                                .padding()
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 12)
+                                                        .stroke(Color("Rose"), lineWidth: 4)
+                                                )
+                                        })
+                                        
+                                    }
+                                    
                                     Button(action: {
                                         horario = "Horario 1"
                                     }, label: {
                                         Text("Horario 1")
+                                            .foregroundColor(Color("Rose"))
+                                            .padding()
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .stroke(Color("Rose"), lineWidth: 4)
+                                            )
                                     })
+                                    
                                     Button(action: {
                                         horario = "Horario 2"
                                     }, label: {
                                         Text("Horario 2")
+                                            .foregroundColor(Color("Rose"))
+                                            .padding()
+                                            .border(Color("Rose"))
+                                            .cornerRadius(3.0)
                                     })
                                 
                                     VStack{

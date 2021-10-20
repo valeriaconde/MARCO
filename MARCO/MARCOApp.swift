@@ -10,6 +10,7 @@ struct MARCOApp: App {
     let persistenceController = PersistenceController.shared
     
     @StateObject var loginVM = LoginViewModel()
+    @StateObject var reservaVM = ReservaViewModel()
     
     var isLogged = false
     
@@ -17,11 +18,12 @@ struct MARCOApp: App {
         WindowGroup{
             if(loginVM.isLoggedIn) {
                 HomeView()
-                    //.environmentObject(media) ?? ? ?
                     .environmentObject(loginVM)
+                    .environmentObject(reservaVM)
             } else {
-            HomeDynamic()
+                HomeDynamic()
                 .environmentObject(loginVM)
+                .environmentObject(reservaVM)
             }
         }
     }

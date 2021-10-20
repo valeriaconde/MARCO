@@ -9,30 +9,15 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State var signInSuccess = false
-    
-    var body: some View {
-        return Group {
-            if signInSuccess {
-                HomeDynamic()
-            } else {
-                LoginFormView(signInSuccess: $signInSuccess)
-            }
-        }
-    }
-}
-
-struct LoginFormView : View {
-    
-    @State private var username: String = ""
-    @State private var password: String = ""
+   // @State private var username: String = ""
+   // @State private var password: String = ""
     @State var showSignUp : Bool = false
     
     @EnvironmentObject private var loginVM : LoginViewModel
     
     @State private var showError = false
     
-    @Binding var signInSuccess: Bool
+    //@Binding var signInSuccess: Bool
     
     var body: some View {
         ZStack {
@@ -50,27 +35,18 @@ struct LoginFormView : View {
                     .foregroundColor(.white)
                     
                 VStack(alignment: .center, spacing: -40){
-                    TextField("Usuario",text: $username)
+                    TextField("Usuario",text: $loginVM.username)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 180, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
-                    SecureField("Contraseña", text: $password)
+                    SecureField("Contraseña", text: $loginVM.password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 180, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }.padding()
                 VStack(spacing: 40){
                 Button(action: {
                     loginVM.login()
-                    
-                    /*
-                    if(self.username == self.password) {
-                        self.signInSuccess = true
-                    }
-                    else {
-                        self.showError = true
-                    }
-                     */
-                    
+                    print("entro")
                 }) {
                     Text("Ingresar")
                         .frame(width: 200 , height: 50, alignment: .center)

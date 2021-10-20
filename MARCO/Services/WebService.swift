@@ -163,31 +163,37 @@ class Webservice{
     
     // RESERVACIONES WEB SERVICES //
     
-    func getHorariosDisponibles(date: Date, completion: @escaping (Result<[String], CommunicationError>) -> Void) {
+    func getHorariosDisponibles(date: Date, completion: @escaping (Result<[HorarioModel], CommunicationError>) -> Void) {
         
         // formatea la fecha para coincidir con la API
         let formatter3 = DateFormatter()
-        formatter3.dateFormat = "yyyy-mm-dd"
+        formatter3.dateFormat = "yyyy-MM-dd"
         let formattedDate = formatter3.string(from: date)
         
         // endpoint
+        print("http://172.31.0.28:10025/vguiadas/\(formattedDate)")
         guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/\(formattedDate)") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
         
-        
         URLSession.shared.dataTask(with: url) { data, response, error in
-            let Response = try! JSONDecoder().decode(GetHorariosResponse.self, from: data!)
+            let Response = try! JSONDecoder().decode(HorariosResponse.self, from: data!)
            
             DispatchQueue.main.async {
-                //completion(.success(Response))
+                completion(.success(Response.horarios))
             }
         }.resume()
         
     }
     
     func getGuiasDisponibles(date: Date, horario: Int, completion: @escaping (Result<[String], CommunicationError>) -> Void) {
+        
+        // formatea la fecha para coincidir con la API
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "yyyy-MM-dd"
+        let formattedDate = formatter3.string(from: date)
+        
         guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/getGuias/\(date)/\(horario)") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
@@ -209,7 +215,7 @@ class Webservice{
         
         // formatea la fecha para coincidir con la API
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-mm-dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(formatter)
     
