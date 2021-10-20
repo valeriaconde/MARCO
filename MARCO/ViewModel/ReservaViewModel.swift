@@ -14,7 +14,7 @@ class ReservaViewModel : ObservableObject {
     
     func reservarVisita(date: Date, horario: String, guia: String, personas: Int, usuario: String) {
         
-        Webservice().reservarVisita(date: date, horario: horario, guia: guia, personas: personas, usuario: usuario) { result in
+        Webservice().reservarVisita(usuario: usuario, guia: guia, date: date, horario: horario, personas: personas) { result in
             
             switch (result) {
                 case .success(let succ):
@@ -25,6 +25,7 @@ class ReservaViewModel : ObservableObject {
             } // switch
         } // webservice
     } // func
+    
     
     func getHorariosDisponibles(date: Date) {
         

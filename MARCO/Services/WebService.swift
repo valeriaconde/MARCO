@@ -42,11 +42,11 @@ struct AddUserResponse: Codable{
 }
 
 struct AddReservaRequestBody: Codable{
-    let fecha : Date
     let usuario: String
+    let guia : String
+    let fecha : Date
     let horario : String
     let personas : Int
-    let guia : String
 }
 
 struct AddReservaResponse: Codable{
@@ -198,27 +198,25 @@ class Webservice{
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
-    
-        
-        
     }
     
-    func reservarVisita(date: Date, horario: String, guia: String, personas: Int, usuario: String, completion: @escaping (Result<Bool, CommunicationError>) -> Void) {
-        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/addVisita") else {
-            completion(.failure(.custom(errorMessage: "URL is not Correct")))
-            return
-        }
-        
-        let body = AddReservaRequestBody(fecha: date, usuario: usuario, horario : horario, personas: personas, guia : guia)
-        
-        print(body)
-        
+    
+    func reservarVisita(usuario: String, guia: String, date: Date, horario: String, personas: Int, completion: @escaping (Result<Bool, CommunicationError>) -> Void) {
         // formatea la fecha para coincidir con la API
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .formatted(formatter)
-    
+        
+        // endpoint
+        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/update/\(usuario)/\(guia)/\(date)/\(horario)/\(personas)") else {
+            completion(.failure(.custom(errorMessage: "URL is not Correct")))
+            return
+        }
+        
+        let body = AddReservaRequestBody(usuario: usuario, guia: guia, fecha: date, horario : horario, personas: personas)
+        
+        print(body)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

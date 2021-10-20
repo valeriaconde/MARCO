@@ -91,7 +91,7 @@ struct ReservacionesView: View {
                                 .padding(.bottom, 15)
                                 .foregroundColor(Color("Rose"))
 
-                            DatePicker("Reservaciones", selection: dateProxy, in: dateClosedRange, displayedComponents: [.date])
+                            DatePicker("Reservaciones", selection: dateProxy, in: Date()..., displayedComponents: [.date])
                                 .datePickerStyle(GraphicalDatePickerStyle())
                                 .accentColor(Color("Rose"))
                                 .environment(\.locale, Locale.init(identifier: "es"))
@@ -151,8 +151,7 @@ struct ReservacionesView: View {
                             // boton para concluir la reserva
                             Button(action: {
                                 // Call to view model
-                                 reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: name)
-                                
+                                 //reservaVM.reservarVisita(usuario: name, guia: guia, date: fecha, horario: horario, personas: personas)
                                 
                                 // Confirmation alert
                                 showAlert = true
@@ -168,8 +167,8 @@ struct ReservacionesView: View {
                                     Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(fecha) en el \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
                                 }
                                 
-                        } // vstack
-                        .padding(28)
+                            } // vstack
+                            .padding(28)
                         } // vstack
                     } // vstack
                 } // scrollview
