@@ -24,17 +24,18 @@ struct ReservacionesView: View {
     
     @EnvironmentObject private var reservaVM : ReservaViewModel
     
-    private var dateProxy:Binding<Date> {
+    private var dateProxy:Binding<Date> {  //EIRH, en lugar de este proxy, utilice el modifier onChange
         
         Binding<Date>(get: {self.fecha }, set: {
             self.fecha = $0
             print(fecha)
             
+            /*reservaVM.getHorariosDisponibles(date: fecha)
             DispatchQueue.main.async {
                 
-                reservaVM.getHorariosDisponibles(date: fecha)
+                
                 self.horariosDisponibles = reservaVM.horariosDisponibles
-            }
+            }*/
             
         })
     }
@@ -91,10 +92,20 @@ struct ReservacionesView: View {
                                 .padding(.bottom, 15)
                                 .foregroundColor(Color("Rose"))
 
-                            DatePicker("Reservaciones", selection: dateProxy, in: Date()..., displayedComponents: [.date])
-                                .datePickerStyle(GraphicalDatePickerStyle())
-                                .accentColor(Color("Rose"))
-                                .environment(\.locale, Locale.init(identifier: "es"))
+                            DatePicker("Reservaciones", selection: $fecha, in: dateClosedRange, displayedComponents: [.date])
+                                 .datePickerStyle(GraphicalDatePickerStyle())
+                                 .accentColor(Color("Rose"))
+                                 .environment(\.locale, Locale.init(identifier: "es"))
+                                 .onChange(of: fecha, perform: { value in
+                                    //Modifique la funcion para que regrese los horarios en cuanto termine la función
+                                    reservaVM.getHorariosDisponibles(date: fecha) { (horarios) in
+                                        DispatchQueue.main.async {
+                                            self.horariosDisponibles = horarios
+                                        }
+
+                                    }
+                                    
+                                })
 
                             // FECHAS CON HORARIOS
                             // 21 de octubre y 2 de noviembre
@@ -151,7 +162,7 @@ struct ReservacionesView: View {
                             // boton para concluir la reserva
                             Button(action: {
                                 // Call to view model
-                                 //reservaVM.reservarVisita(usuario: name, guia: guia, date: fecha, horario: horario, personas: personas)
+                                 reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: name)
                                 
                                 // Confirmation alert
                                 showAlert = true

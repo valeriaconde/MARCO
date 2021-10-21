@@ -27,7 +27,8 @@ class ReservaViewModel : ObservableObject {
     } // func
     
     
-    func getHorariosDisponibles(date: Date) {
+    func getHorariosDisponibles(date: Date, completion:@escaping ([HorarioModel]) -> ()) {
+        //Los resultados se regresan en la misma función con completion
         
         DispatchQueue.main.async {
             Webservice().getHorariosDisponibles(date: date) { result in
@@ -35,6 +36,9 @@ class ReservaViewModel : ObservableObject {
                     case .success(let succ):
                         print(succ)
                         self.horariosDisponibles = succ
+                        DispatchQueue.main.async {
+                            completion(succ) //nos aseguramos de estar en el thread principal
+                        }
                         
                     case .failure(let error):
                         print(error)

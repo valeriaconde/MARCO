@@ -21,7 +21,7 @@ struct MARCOApp: App {
                     .environmentObject(loginVM)
                     .environmentObject(reservaVM)
             } else {
-                HomeDynamic()
+                LoginView()
                 .environmentObject(loginVM)
                 .environmentObject(reservaVM)
             }

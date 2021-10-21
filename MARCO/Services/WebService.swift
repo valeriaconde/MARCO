@@ -70,7 +70,7 @@ class Webservice{
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
         
         //100.24.228.237:10025
-        guard let url = URL(string: "http://localhost:3005/users/login") else {
+        guard let url = URL(string: "http://172.31.0.28:10025/users/login") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
