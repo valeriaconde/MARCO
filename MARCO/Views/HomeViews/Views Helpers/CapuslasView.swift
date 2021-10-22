@@ -14,12 +14,14 @@ struct CapuslasView: View {
             NavigationLink(
                 destination: CapsulaArtista(),
                 label: {
-                    CapImage(nImage: "MaGa_Explorer", nArtist: "MARIO GARCIA")
+                    CapImage(nImage: "Ai Weiwei", nArtist: "AI WEIWEI")
                 })
+                
             
                 CapImage(nImage: "MaSm_Explorer", nArtist: "MELANIE SMITH")
                 CapImage(nImage: "RaLo_Explorer", nArtist: "RAFAEL LOZANO")
                 CapImage(nImage: "Ca&Mi_Explorer", nArtist: "CARDIFF & MILLER")
+                
         }
     }
 }
