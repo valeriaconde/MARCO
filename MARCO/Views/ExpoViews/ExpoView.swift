@@ -16,7 +16,7 @@ struct ExpoView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color("Beige")
+                Color("Grey")
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView(.vertical, showsIndicators: false) {
