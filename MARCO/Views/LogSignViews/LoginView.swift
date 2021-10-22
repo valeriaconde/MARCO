@@ -36,6 +36,7 @@ struct LoginView: View {
                     
                 VStack(alignment: .center, spacing: -40){
                     TextField("Usuario",text: $loginVM.username)
+                        .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 180, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     

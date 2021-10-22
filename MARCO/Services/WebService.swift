@@ -13,7 +13,7 @@ enum AuthenticationError: Error{
 }
 
 struct LoginRequestBody: Codable{
-    let username : String
+    let correo : String
     let password: String
 }
 
@@ -26,7 +26,6 @@ struct LoginResponse: Codable{
 enum CommunicationError: Error {
     case connectionError
     case custom(errorMessage: String)
-    
 }
 
 struct AddUserRequestBody: Codable {
@@ -57,14 +56,12 @@ struct GetHorariosRequestBody: Codable {
     let date : Date
 }
 
-struct GetHorariosResponse: Codable{
-    let message: String?
-    let success: [String]?
+struct GuiasResponse : Codable {
+    var guias : [String]
 }
 
-
 class Webservice{
-
+    
     // LOGIN WEB SERVICES //
     
     func login(username: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
@@ -75,7 +72,7 @@ class Webservice{
             return
         }
     
-        let body = LoginRequestBody(username: username, password: password)
+        let body = LoginRequestBody(correo: username, password: password)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -98,7 +95,6 @@ class Webservice{
                 completion(.failure(.invalidCredentials))
                 return
             }
-            
             completion(.success(token))
             
             
@@ -187,17 +183,27 @@ class Webservice{
         
     }
     
-    func getGuiasDisponibles(date: Date, horario: Int, completion: @escaping (Result<[String], CommunicationError>) -> Void) {
+    func getGuiasDisponibles(date: Date, horario: String, completion: @escaping (Result<[String], CommunicationError>) -> Void) {
         
         // formatea la fecha para coincidir con la API
         let formatter3 = DateFormatter()
         formatter3.dateFormat = "yyyy-MM-dd"
         let formattedDate = formatter3.string(from: date)
         
-        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/getGuias/\(date)/\(horario)") else {
+        // endpoint
+        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/getGuias/\(formattedDate)/\(horario)") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            let Response = try! JSONDecoder().decode(GuiasResponse.self, from: data!)
+           
+            DispatchQueue.main.async {
+                completion(.success(Response.guias))
+            }
+        }.resume()
+        
     }
     
     

@@ -19,7 +19,7 @@ struct UserModel : Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case username = "username"
+        case username = "correo"
         case password = "password"
         case usertype = "usertype"
     }

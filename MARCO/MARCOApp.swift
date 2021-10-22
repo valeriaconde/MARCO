@@ -17,7 +17,7 @@ struct MARCOApp: App {
     var body: some Scene {
         WindowGroup{
             if(loginVM.isLoggedIn) {
-                HomeView()
+                HomeDynamic()
                     .environmentObject(loginVM)
                     .environmentObject(reservaVM)
             } else {

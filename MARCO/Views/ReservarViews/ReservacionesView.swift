@@ -17,25 +17,19 @@ struct ReservacionesView: View {
     @State private var opcion = 2
     @State private var showAlert = false
     @State private var selectorIndex = 0
-    @State private var guias = ["Guia 1", "Guia 2", "Guia 3"]
+    @State private var guias = ["Aylin", "Valeria", "Rodrigo"]
     @State private var horariosDisponibles = [HorarioModel]()
     @State private var guia = String()
     @State private var horario = String()
+    @State private var guiasDisponibles = [String]()
     
     @EnvironmentObject private var reservaVM : ReservaViewModel
     
-    private var dateProxy:Binding<Date> {  //EIRH, en lugar de este proxy, utilice el modifier onChange
+    private var dateProxy:Binding<Date> {
         
         Binding<Date>(get: {self.fecha }, set: {
             self.fecha = $0
             print(fecha)
-            
-            /*reservaVM.getHorariosDisponibles(date: fecha)
-            DispatchQueue.main.async {
-                
-                
-                self.horariosDisponibles = reservaVM.horariosDisponibles
-            }*/
             
         })
     }
@@ -92,7 +86,7 @@ struct ReservacionesView: View {
                                 .padding(.bottom, 15)
                                 .foregroundColor(Color("Rose"))
 
-                            DatePicker("Reservaciones", selection: $fecha, in: dateClosedRange, displayedComponents: [.date])
+                            DatePicker("Reservaciones", selection: $fecha, in: Date()..., displayedComponents: [.date])
                                  .datePickerStyle(GraphicalDatePickerStyle())
                                  .accentColor(Color("Rose"))
                                  .environment(\.locale, Locale.init(identifier: "es"))
@@ -102,9 +96,7 @@ struct ReservacionesView: View {
                                         DispatchQueue.main.async {
                                             self.horariosDisponibles = horarios
                                         }
-
                                     }
-                                    
                                 })
 
                             // FECHAS CON HORARIOS
@@ -114,9 +106,27 @@ struct ReservacionesView: View {
                                 .bold()
                                 
                             VStack(alignment: .leading){
+                                
+                                if horariosDisponibles.isEmpty {
+                                    Text("No hay horarios disponibles en esta fecha")
+                                }
+                                
+                                // Para generar los botones de las horas
                                 ForEach(horariosDisponibles) { item in
+                                    
                                     Button(action: {
+                                        // Guarda la hora seleccionada
                                         horario = item.hora
+                                        
+                                        // Lo que hariamos si supieramos programar
+                                        getGuias(item: item.hora, date: fecha)
+                                        ForEach(guiasDisponibles, id: \.self) { it in
+                                            Text(it)
+                                        }
+                                        
+                                        // Success print nomas pa saber
+                                        print("boton picado")
+                                    
                                     }, label: {
                                         Text(item.hora)
                                             .foregroundColor(Color("Rose"))
@@ -127,19 +137,31 @@ struct ReservacionesView: View {
                                             )
                                     }) // button
                                 } // foreach
-                                    
-                                // botones de guias
+                                
+                                Text("Elige tu guía")
+                                    .bold()
+                                    .padding(.top)
+                                
+                                // Botones de guias
                                 VStack{
-                                    ForEach(0..<guias.count) { index in
-                                        Button(action: {
-                                            guia = (self.guias[index])
-                                        }, label: {
-                                        Text(self.guias[index]).tag(index)
-                                        })
-                                        .foregroundColor(Color("Rose"))
-                                        .frame(width: 100)
-                                    } // for each
-                                } // vstack
+                                    if !horariosDisponibles.isEmpty {
+                                        
+                                        ForEach(0..<guias.count) { index in
+                                            Button(action: {
+                                                guia = (self.guias[index])
+                                            }, label: {
+                                            Text(self.guias[index]).tag(index)
+                                            })
+                                            .foregroundColor(Color("Rose"))
+                                            .padding()
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .stroke(Color("Rose"), lineWidth: 2)
+                                                //.frame(width: 100)
+                                            ) // overlay of button
+                                        } // for each
+                                    } // if
+                                } // vstack botones guias
                                 .padding(.bottom)
                             } // vstack
                             
@@ -186,6 +208,22 @@ struct ReservacionesView: View {
             } // zstack
         } // navigation view
     } // body
+    
+    func getGuias(item: String, date: Date) {
+        
+        reservaVM.getGuiasDisponibles(date: fecha, horario: item, completion: { (result) -> Void in
+            print("Second line of code executed")
+            if !result.isEmpty { // this will be equal to whatever value is set in this method call
+                self.guiasDisponibles = result
+                
+                print("true")
+            } else {
+                 print("false")
+            }
+        })
+       
+    }
+    
 } // struct
 
 struct ReservacionesView_Previews: PreviewProvider {

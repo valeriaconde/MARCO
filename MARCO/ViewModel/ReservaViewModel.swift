@@ -11,6 +11,7 @@ import SwiftUI
 
 class ReservaViewModel : ObservableObject {
     @Published var horariosDisponibles = [HorarioModel]()
+    @Published var guiasDisponibles = [String]()
     
     func reservarVisita(date: Date, horario: String, guia: String, personas: Int, usuario: String) {
         
@@ -44,8 +45,27 @@ class ReservaViewModel : ObservableObject {
                         print(error)
                 } // switch
             } // webservice
-        }
+        } // dispatcher
         
     } // func
+    
+    func getGuiasDisponibles(date: Date, horario: String, completion: @escaping ([String]) -> ()) {
+        
+        Webservice().getGuiasDisponibles(date: date, horario: horario) { result in
+            
+            switch (result) {
+                case .success(let succ):
+                    print(succ)
+                    self.guiasDisponibles = succ
+                    DispatchQueue.main.async {
+                        completion(succ) 
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+            } // switch
+        } // webservice
+    }
+    
     
 } // class
