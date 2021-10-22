@@ -15,7 +15,7 @@ struct HomeDynamic: View {
    }
     
     var body: some View {
-        ZStack{
+        ZStack {
             TabView (selection:$selected){
                 ReservacionesView()
                     .tabItem {
@@ -26,12 +26,12 @@ struct HomeDynamic: View {
                 
                 HomeView()
                     .tabItem {
-                        //Image("MarcoIcon")
+                        Image("MarcoIcon")
                     }.tag(2)
                 
                 PerfilView()
                     .tabItem {
-                        //Image("PersonIcon")
+                        Image("PersonIcon")
                     }.tag(3)
             }
             
@@ -40,7 +40,8 @@ struct HomeDynamic: View {
                 Button(action: { self.selected = 1 } ) {
                     Image("ShopIcon")
                         .padding(1)
-                        .position(x: 90, y: 805)
+                        .position(x: 0, y: 425)
+                        .frame(width: 50, height: 50)
                 }
                 Button(action: { self.selected = 2 } ) {
                     Image("MarcoIcon")

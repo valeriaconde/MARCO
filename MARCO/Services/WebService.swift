@@ -209,13 +209,19 @@ class Webservice{
     
     func reservarVisita(usuario: String, guia: String, date: Date, horario: String, personas: Int, completion: @escaping (Result<Bool, CommunicationError>) -> Void) {
         // formatea la fecha para coincidir con la API
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "yyyy-MM-dd"
+        let formattedDate = formatter3.string(from: date)
         let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .formatted(formatter)
+        
+        print(usuario)
+        print(guia)
+        print(formattedDate)
+        print(horario)
+        print(personas)
         
         // endpoint
-        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/update/\(usuario)/\(guia)/\(date)/\(horario)/\(personas)") else {
+        guard let url = URL(string: "http://172.31.0.28:10025/vguiadas/update/\(usuario)/\(guia)/\(formattedDate)/\(horario)/\(personas)") else {
             completion(.failure(.custom(errorMessage: "URL is not Correct")))
             return
         }

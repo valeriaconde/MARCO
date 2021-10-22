@@ -22,6 +22,8 @@ struct ReservacionesView: View {
     @State private var guia = String()
     @State private var horario = String()
     @State private var guiasDisponibles = [String]()
+    @State private var didTap:Bool = false
+    @State private var formattedDate = String()
     
     @EnvironmentObject private var reservaVM : ReservaViewModel
     
@@ -97,7 +99,9 @@ struct ReservacionesView: View {
                                             self.horariosDisponibles = horarios
                                         }
                                     }
-                                })
+                                }) // date picker
+                            
+                            
 
                             // FECHAS CON HORARIOS
                             // 21 de octubre y 2 de noviembre
@@ -118,14 +122,19 @@ struct ReservacionesView: View {
                                         // Guarda la hora seleccionada
                                         horario = item.hora
                                         
+                                        /*
                                         // Lo que hariamos si supieramos programar
                                         getGuias(item: item.hora, date: fecha)
                                         ForEach(guiasDisponibles, id: \.self) { it in
                                             Text(it)
                                         }
+                                        */
                                         
                                         // Success print nomas pa saber
                                         print("boton picado")
+                                        
+                                        // variable que usariamos para cambiar el boton picado de color
+                                        self.didTap = true
                                     
                                     }, label: {
                                         Text(item.hora)
@@ -183,6 +192,11 @@ struct ReservacionesView: View {
                                 
                             // boton para concluir la reserva
                             Button(action: {
+                                // formats date
+                                let formatter3 = DateFormatter()
+                                formatter3.dateFormat = "dd-MM-yyyy"
+                                formattedDate = formatter3.string(from: fecha)
+                                
                                 // Call to view model
                                  reservaVM.reservarVisita(date: fecha, horario: horario, guia: guia, personas: personas, usuario: name)
                                 
@@ -197,7 +211,7 @@ struct ReservacionesView: View {
                                 .frame(width: 100)
                                 .position(x: 185, y: 50)
                                 .alert(isPresented: $showAlert) {
-                                    Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(fecha) en el \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
+                                    Alert(title: Text("Reservado"), message: Text("Reservacion a nombre de \(name) para \(personas) personas el \(formattedDate) a las \(horario) guiados por \(guia)"), dismissButton: .default(Text("Ok")))
                                 }
                                 
                             } // vstack
@@ -209,6 +223,7 @@ struct ReservacionesView: View {
         } // navigation view
     } // body
     
+    // funcion que usariamos para traer los guias si supieramos updatear ui
     func getGuias(item: String, date: Date) {
         
         reservaVM.getGuiasDisponibles(date: fecha, horario: item, completion: { (result) -> Void in
