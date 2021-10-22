@@ -14,32 +14,28 @@ struct ExposicionesView: View {
                 NavigationLink(
                     destination: ExpoView(),
                     label: {
-                        Image("reservaciones_Home")
+                        Image("index5")
                             .resizable()
                             .overlay(Rectangle().stroke(Color.black,lineWidth: 2.5))
                             .cornerRadius(10)
                             .padding(.all)
                             .frame(height: 250)
                     })
-                Text("La Exposicion")
-                    .foregroundColor(.white)
-                    .font(.title)
+             //   Text("La Exposicion")
+               //     .foregroundColor(.white)
+                 //   .font(.title)
             }
             ZStack {
-                NavigationLink(
-                    destination: ExpoView(),
-                    label: {
-                        Image("explorerM_Home")
-                            .resizable()
-                            .overlay(Rectangle().stroke(Color.black,lineWidth: 2.5))
-                            .cornerRadius(10)
-                            .padding(.all)
-                            .frame(height: 250)
-                    })
+                Image("index6")
+                    .resizable()
+                    .overlay(Rectangle().stroke(Color.black,lineWidth: 2.5))
+                    .cornerRadius(10)
+                    .padding(.all)
+                    .frame(height: 250)
                  
-                    Text("Farsa y Artificio")
-                        .foregroundColor(.white)
-                        .font(.title)
+                    //Text("Farsa y Artificio")
+                      //  .foregroundColor(.white)
+                        //.font(.title)
                 
             }
         }

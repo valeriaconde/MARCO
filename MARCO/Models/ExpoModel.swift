@@ -26,7 +26,7 @@ class ExpoModel: ObservableObject {
     func LoadInfo() {
         var expo : Expo
         
-        expo = Expo(name: "La poética del regreso", description: "una obra de arte", images: ["post1", "post3", "post4", "post2"])
+        expo = Expo(name: "INDEX", description: "una obra de arte", images: ["index1", "index2", "index4", "index3"])
         expos.append(expo);
         
         
