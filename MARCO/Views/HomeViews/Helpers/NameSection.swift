@@ -11,7 +11,7 @@ struct NameSection: View {
     let nameSection : String
     var body: some View {
         Text(nameSection)
-            .foregroundColor(.white)
+            .foregroundColor(Color("Rose"))
             .font(.title)
             .bold()
             .padding(.horizontal, 20)
